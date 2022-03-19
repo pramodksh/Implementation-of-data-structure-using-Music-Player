@@ -1,20 +1,20 @@
 // Splash screen animation 
 
-function pageLoaded()
-{
-  const element = document.getElementById("animate");
-  setTimeout(() => {
-    element.remove();
-  }, 5000);
-}
+// function pageLoaded()
+// {
+//   const element = document.getElementById("animate");
+//   setTimeout(() => {
+//     element.remove();
+//   }, 5000);
+// }
 
-var animation =bodymovin.loadAnimation({
-  container : document.getElementById('animate'),
-  renderer:'svg',
-  loop:true,
-  autoplay:true,
-  path:'data.json'
-})
+// var animation =bodymovin.loadAnimation({
+//   container : document.getElementById('animate'),
+//   renderer:'svg',
+//   loop:true,
+//   autoplay:true,
+//   path:'data.json'
+// })
 
 function allowDrop(ev) {
     ev.preventDefault();  // default is not to allow drop
