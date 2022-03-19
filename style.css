@@ -6,6 +6,13 @@
     /* filter: inve rt(100%); */
 
 }
+/* Splash Screen animation  */
+#animate{
+    width: 100%;
+    z-index: 2;
+    height: 100%;
+    margin: 0 auto;
+  }
 
 /* utilities */
 
@@ -207,7 +214,7 @@ Main container
     align-items: center;
 
     /* to control text overflow */
-    
+
     white-space: nowrap;
     overflow: hidden;
     text-overflow: initial;    
