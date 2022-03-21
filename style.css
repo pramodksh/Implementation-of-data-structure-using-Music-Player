@@ -194,6 +194,8 @@ Main container
 .main_image{
     margin-right:20;
     padding:0;
+    align-self: center;
+    transform: scale(1.7);
 }
 
 

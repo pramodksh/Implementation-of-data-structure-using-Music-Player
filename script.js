@@ -1,20 +1,23 @@
 // Splash screen animation 
+// var bool = true;
+function pageLoaded()
+{
+    const element = document.getElementById("animate");
+    setTimeout(() => {
+      element.remove();
+    }, 4000);
+}
 
-// function pageLoaded()
-// {
-//   const element = document.getElementById("animate");
-//   setTimeout(() => {
-//     element.remove();
-//   }, 5000);
+// if(bool){
+//   bool = false;
+  var animation =bodymovin.loadAnimation({
+    container : document.getElementById('animate'),
+    renderer:'svg',
+    loop:true,
+    autoplay:true,
+    path:'data.json'
+  })
 // }
-
-// var animation =bodymovin.loadAnimation({
-//   container : document.getElementById('animate'),
-//   renderer:'svg',
-//   loop:true,
-//   autoplay:true,
-//   path:'data.json'
-// })
 
 function allowDrop(ev) {
     ev.preventDefault();  // default is not to allow drop
