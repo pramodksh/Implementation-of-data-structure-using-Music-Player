@@ -7,7 +7,7 @@
 var splashScreenTime = 4000;
 
 function pageLoaded(){
-
+  console.log("foo is working s");
   setTimeout(() => 
   {
       localStorage.setItem("email","true")
