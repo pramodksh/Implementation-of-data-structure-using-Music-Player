@@ -6,15 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
+<body onload="someFoo()">
     This is test case 
+
 </body>
     <script>
+        function someFoo() {
+            console.log("This is tstststts");
+        }
+    </script>
+    <!-- <script>
         setTimeout(() => {
             localStorage.setItem("email","he")
         }, 5000);
         if (localStorage.getItem("email")) {
             document.write("This is running ")
         }
-    </script>
+    </script> -->
 </html>

@@ -1,15 +1,22 @@
 
+function changee() {
+  document.getElementById("song-name-id").innerHTML = "Demons"
+}
+
+
+
+
+console.log("Drag and Drop is working !!!");
 class Song {
-  constructor(dataAttribute,name,artist,imagePath,audioPath) {
+  constructor(dataAttribute, name, artist, imagePath, audioPath) {
     this.dataAttribute = dataAttribute;
     this.name = name;
     this.artist = artist;
     this.imagePath = imagePath;
     this.audioPath = audioPath;
-
   }
 }
-  
+
 imagePath1 = "https://m.media-amazon.com/images/I/513soaaS2BS._SY550_.jpg";
 imagePath2 = "https://i.ytimg.com/vi/mD3Lb2rSXQI/maxresdefault.jpg"
 imagePath3 = "https://ih1.redbubble.net/image.2086000339.6433/farp,small,wall_texture,product,750x1000.jpg"
@@ -17,12 +24,12 @@ imagePath4 = "https://i.ytimg.com/vi/Ev1-M3yoD08/maxresdefault.jpg"
 imagePath5 = "https://i.pinimg.com/236x/03/43/a5/0343a557914b3b7b2220b72dc54857e6.jpg"
 
 let songs = [
-  new Song("song1", "Demons", "Imagine Dragons" ,imagePath1,"audios/audio1.mp3"),
-  new Song("song2", "Brethe", "Pink Floyd" ,imagePath2,"audios/audio2.mp3"),
-  new Song("song3", "Circles", "Post Malon" ,imagePath3,"audios/audio3.mp3"),
-  new Song("song3", "Counting Stars", "OneRepublic" ,imagePath4,"audios/audio3.mp3"),
-  new Song("song3", "Ignite", "K-391 and Alan Walker" ,imagePath5,"audios/audio3.mp3"),
-];
+  new Song("song1", "Demons", "Imagine Dragons", imagePath1,  "../audios/demons.mp3"),
+  new Song("song2", "Brethe", "Pink Floyd", imagePath2,  "../audios/breathe.mp3"),
+  new Song("song3", "Circles", "Post Malon", imagePath3,  "../audios/circles.mp3"),
+  new Song("song4", "Counting Stars", "OneRepublic", imagePath4,  "../audios/countingStars.mp3"),
+  new Song("song5", "Ignite", "K-391 and Alan Walker", imagePath5, "../audios/ignite.mp3"),
+];  
 console.log(songs[0].dataAttribute);
 
 let list1Songs = [];
@@ -33,7 +40,13 @@ let setList1 = () => {
   for (let i = 0; i < list1Songs.length; i++) {
     let song = list1Songs[i];
     list1Content = list1Content + `
-    <div id=card${i+1} class="card" data-song-id = "${song.dataAttribute}" draggable="true" ondragstart="dragStart(event)">
+    <div id=card${i + 1} class="card" 
+    data-song-id = "${song.dataAttribute}" 
+    data-name-id = "${song.name}"
+    data-artist-id = "${song.artist}"
+    data-imagePath-id = "${song.imagePath}"
+    data-audioPath-id = "${song.audioPath}"
+    " draggable="true" ondragstart="dragStart(event)">
       <img class="round" src=${song.imagePath}
         height="50px" width="50px" alt="Image not found">
       <div class="song_title">
@@ -49,9 +62,6 @@ let setList1 = () => {
 };
 
 
-
-
-
 function init() {
   list1Songs = songs;
 }
@@ -63,13 +73,7 @@ window.onload = function () {
   setList1();
 };
 
-
-
 // ----------------------------------------------
-
-
-
-
 
 function allowDrop(ev) {
   ev.preventDefault();  // default is not to allow drop
@@ -83,6 +87,16 @@ function dragStart(ev) {
   console.log(ev.sourceId)
 }
 
+listOfSongsToBePlayed = []
+listOfImagesToBeDisplayed = []
+listOfSongNamesToBeDisplayed = []
+listOfArtistNamesToBeDisplayed = []
+audioo =  document.getElementById("audio-path-id")
+imagee = document.getElementById("main_image_id")
+songName = document.getElementById("song-name-id")
+artistName = document.getElementById("artist-name-id")
+
+
 
 function dropIt(ev) {
   ev.preventDefault();  // default is not to allow drop
@@ -93,26 +107,31 @@ function dropIt(ev) {
   let targetEl = document.getElementById(ev.target.id)
   let targetParentEl = targetEl.parentElement;
 
+  // ------------------------------Un-comment this ------------------------------ 
 
-  console.log("Source ID : ", sourceId);
-  console.log("Source ID E1: ", sourceIdEl);
-  console.log("Source ID Parent E1: ", sourceIdParentEl);
-
-  
-  console.log("-----------------------------------");
-  console.log("TargetParentE1 :", targetParentEl);
-  console.log("TargetEl Length : ", targetEl.length);
-  let numb = document.getElementById("list2").childNodes;
-  // console.log("~~~~~~~~~~~~~~~~~~~Number of elements in list2 is~~~~~~~~~~\n ",numb.forEach(foo));
-  console.log("------------------------------------");
-
-  console.log(targetParentEl.id);
-  console.log(sourceIdParentEl.id);
+  // console.log("Source ID : ", sourceId);
+  // console.log("Source ID E1: ", sourceIdEl);
+  // console.log("Source ID Parent E1: ", sourceIdParentEl);
 
 
-  // Compare List names to see if we are going between lists
-  // or within the same list
-  console.log(targetEl.className, "===", sourceIdEl.className)
+  // console.log("-----------------------------------");
+  // console.log("TargetParentE1 :", targetParentEl);
+  // console.log("TargetEl Length : ", targetEl.length);
+  // let numb = document.getElementById("list2").childNodes;
+  // // console.log("~~~~~~~~~~~~~~~~~~~Number of elements in list2 is~~~~~~~~~~\n ",numb.forEach(foo));
+  // console.log("------------------------------------");
+
+  // console.log(targetParentEl.id);
+  // console.log(sourceIdParentEl.id);
+
+
+  // // Compare List names to see if we are going between lists
+  // // or within the same list
+  // console.log(targetEl.className, "===", sourceIdEl.className)
+
+
+  // ------------------------------Un-comment this ------------------------------ 
+
   if (targetParentEl.id !== sourceIdParentEl.id) {
 
     // If the source and destination have the same 
@@ -127,67 +146,66 @@ function dropIt(ev) {
       // of a Card in a different list
 
       targetParentEl.prepend(sourceIdEl);
-      
+
     } else {
-      
-      // var card1 = {
-      //   songName : "Demons",
-      //   songArtist :  "Imagine Dragons",
-      //   songSource : "audio1.mp3"
-      // }
-      // console.log("Type of card 1 isssss :"+typeof(card1));
-      // var card2 = {
-      //   songName : "Brethe",
-      //   songArtist :  "Pink Floyd",
-      //   songSource : "audio2.mp3"
-      // }
-      // var card3 = {
-      //   songName : "Circles",
-      //   songArtist :  "Post Malon",
-      //   songSource : "audio1.mp3"
-      // }
-      // var card4 = {
-      //   songName : "Counting Stars",
-      //   songArtist :  "OneRepublic",
-      //   songSource : "audio1.mp3"
-      // }
-      // var card5 = {
-      //   songName : "Ignite",
-      //   songArtist :  "K-391 and Alan Walker",
-      //   songSource : "audio1.mp3"
-      // }
 
       console.log("List of elements in container 2 are  : ");
       setTimeout(() => {
-      var listOfSongs = [];
+        var listOfSongs = [];
 
         const list2Elements = document.getElementById("list2").childNodes;
         // console.log("List 2 Elemenets are : "+document.getElementById("list2").firstChild.className);
         // console.log("List 2 Elemenets are : "+list2Elements[0].id);
+        
         for (let i = 0; i < list2Elements.length; i++) {
           if (list2Elements[i].className == "card") {
             // console.log(list2Elements[i].id);
             listOfSongs.push(list2Elements[i].id);
           }
         }
-        const hehe = listOfSongs[0];
-        const hehe2 = document.getElementById(list1Songs[0]);
-        // console.log("Type of  : "+ typeof(n1));
-        // console.log("Value of n2: "+ n2);
-        // for (let i = 0; i < listOfSongs.length; i++) {
-        //   const element = listOfSongs[i];
-        //   console.log(`List of song [${i}] ` + list1Songs[2].artist);
-        //   console.log("HERREEE : " + element);
-        // }
+        const var1 = listOfSongs[0];
+        const var2 = document.getElementById(list1Songs[0]);
+
         console.log(listOfSongs);
-        // console.log("HERREEE : ");
+        listOfSongsToBePlayed = []
+        listOfImagesToBeDisplayed = []
+        listOfSongNamesToBeDisplayed = []
+        listOfArtistNamesToBeDisplayed = []
+
+        for (let i = 0; i < listOfSongs.length; i++) {
+          if (songs[i]['dataAttribute'] = document.getElementById(listOfSongs[i]).dataset.songId) {
+            // console.log("Value of i is " + i);
+            // console.log(songs[i]['audioPath']);
+            console.log(document.getElementById(listOfSongs[i]).dataset.songId);
+            console.log(document.getElementById(listOfSongs[i]).dataset.nameId);
+            console.log(document.getElementById(listOfSongs[i]).dataset.artistId);
+            console.log(document.getElementById(listOfSongs[i]).dataset.audiopathId);
+            console.log(document.getElementById(listOfSongs[i]).dataset.imagepathId);
+            listOfSongsToBePlayed.push(document.getElementById(listOfSongs[i]).dataset.audiopathId)
+            listOfImagesToBeDisplayed.push(document.getElementById(listOfSongs[i]).dataset.imagepathId)
+            listOfSongNamesToBeDisplayed.push(document.getElementById(listOfSongs[i]).dataset.nameId)
+            listOfArtistNamesToBeDisplayed.push(document.getElementById(listOfSongs[i]).dataset.artistId)
+          }
+        }
+        console.log("listOfSongsToBePlayed is : ");
+        console.log(listOfSongsToBePlayed);
+        console.log("listOfImagesToBeDisplayed is : ");
+        console.log(listOfImagesToBeDisplayed);
+        console.log("listOfSongNamesToBeDisplayed is : ");
+        console.log(listOfSongNamesToBeDisplayed);
+        console.log("listOfArtistNamesToBeDisplayed is : ");
+        console.log(listOfArtistNamesToBeDisplayed);
+        audioo.src=listOfSongsToBePlayed[0];
+        imagee.src=listOfImagesToBeDisplayed[0];
+        songName.innerHTML=listOfSongNamesToBeDisplayed[0];
+        artistName.innerHTML=listOfArtistNamesToBeDisplayed[0];
       }, 500);
-        
+
       // }
 
       // Append to the list
       targetEl.prepend(sourceIdEl);
-      
+
     }
 
   }
@@ -211,6 +229,52 @@ function dropIt(ev) {
   //     sourceIdEl.textContent=holderText;
   //     holderText='';
   // }
-
 }
 
+
+
+
+// --------------------code used to change music ---------------------
+function fooo() {
+  if(document.getElementById("audioFile").src == `http://127.0.0.1:${location.port}/null`)
+  {
+    // alert("Source file path is empty!!!");
+    console.log("Source file path is empty");
+  }
+  else
+  {
+    // alert("Source file found");
+    console.log("Source file found");
+  }
+}
+
+var index = 1;
+    
+function changePath() {
+    // console.log("Change Path Function Called !!!");
+    // console.log("Flag1");
+    // audioo.src="audio1.mp3";
+    // console.log("Flag2");
+    audioo.play();
+    // console.log("Flag3");
+    audioo.onended = function foo() {
+      // console.log("Flag4");
+      // console.log("Foo is called " + index);
+      // console.log("Flag5");
+      audioo.src = listOfSongsToBePlayed[index];
+      imagee.src = listOfImagesToBeDisplayed[index];
+      songName.innerHTML=listOfSongNamesToBeDisplayed[index];
+      artistName.innerHTML=listOfArtistNamesToBeDisplayed[index];
+      console.log("----------------------------See Here :Image Changed-----------------------");
+      // console.log(document.getElementById("main_image_id").src);
+      // console.log("Flag6");
+      audioo.play();
+      // console.log("Flag7");
+      index++;
+      // console.log("Incremented Index");
+    }
+}
+
+
+
+// console.log(location.port);
