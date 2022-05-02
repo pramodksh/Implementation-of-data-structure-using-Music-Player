@@ -1,0 +1,304 @@
+@import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Architects+Daughter&family=Bungee&family=Cinzel&family=Fredericka+the+Great&family=Fredoka:wght@300&family=Montserrat&family=Noto+Serif+Display:wdth,wght@83.9,500;100,300;100,500&family=Playfair+Display:wght@400;500&family=Rajdhani:wght@300&family=Roboto:ital,wght@0,100;1,100&family=Rubik+Glitch&family=Satisfy&family=Shadows+Into+Light&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    /* filter: inve rt(100%); */
+}
+
+
+/* Splash Screen animation  */
+
+#animate {
+    width: 100%;
+    z-index: 2;
+    height: 100%;
+    margin: 0 auto;
+}
+
+
+/* utilities */
+
+body {
+    font-family: 'Alata', sans-serif;
+    /* background-color: #1DB954; */
+    /* background: linear-gradient( #1DB954 , black); */
+    overflow-y: hidden;
+}
+
+.fullnav {
+    width: 100%;
+    background-size: auto;
+    /* background-blend-mode: darken; */
+    position: sticky;
+}
+
+.navbar {
+    width: 80%;
+    margin-bottom: 0%;
+}
+
+.navitem {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.navbar .item {
+    margin: 2%;
+}
+
+.navbar .item a {
+    border: #00000026 1px solid;
+    text-decoration: none;
+    /* font-size: 20px; */
+    padding: 6px 8px;
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    background-color: rgba(153, 153, 153, 0.507);
+}
+
+.navbar .item a:hover {
+    background-color: #1DB954;
+}
+
+.navitem h1 {
+    background-color: #1DB954;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.main-container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    /* width: 95vmax; */
+    position: relative;
+    margin: 30px;
+    height: fit-content;
+    /* backdrop-filter: saturate(180%) blur(10px); */
+    border-radius: 20px;
+}
+
+
+/* .main-container{
+    display: flex;
+    position: relative;
+    margin: 0px 10px;
+}
+.main-container::before{
+    background-color: black ;
+    /* border: rgb(4, 130, 233) 3px solid; */
+
+
+/* border-radius: 90px 35px 90px 35px;
+    z-index: -1;
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0.4; 
+} */
+
+
+/* .main-container {
+    width: 90%;
+    height: 90%;
+    background-color: red;
+    position: absolute;
+    top:300;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+} */
+
+
+/***
+
+Main container
+
+***/
+#main-heading {
+    text-align: center;
+    font-size: 55px;
+    color: #ffffff;
+    font-family: 'Rubik Glitch', cursive;
+    font-weight: 40;
+}
+
+.board-layout {
+    /* background: rgba(0, 0, 0,0.8); */
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    display: grid;
+    grid-template-rows: max-content auto;
+    grid-gap: 10px;
+    padding: 1% 5% 1% 5%;
+    width: 100%;
+}
+
+.list-layout {
+    display: grid;
+    grid-gap: 10px;
+}
+
+.board-text {
+    font-weight: bold;
+    font-size: 48px;
+    padding: 5px;
+}
+
+.board-lists {
+    display: grid;
+    grid-auto-columns: 275px;
+    grid-auto-flow: column;
+    grid-gap: 10px;
+    justify-content: space-between;
+    margin-bottom: 1%;
+}
+
+.board-list {
+    background-color: rgba(13, 46, 16, 0.6);
+    border-radius: 3px;
+    display: grid;
+    grid-auto-rows: max-content;
+    grid-gap: 12px;
+    /* Chrome use a fixed height */
+    height: 500px;
+    width: 100%;
+    padding: 10px;
+    overflow-y: scroll;
+}
+
+.board-list::-webkit-scrollbar {
+    width: 12px;
+    /* width of the entire scrollbar */
+}
+
+.board-list::-webkit-scrollbar-track {
+    background: rgba(20, 20, 20, .25);
+    /* color of the tracking area */
+}
+
+.board-list::-webkit-scrollbar-thumb {
+    background-color: rgb(87, 84, 84);
+    /* color of the scroll thumb */
+    border-radius: 20px;
+    /* roundness of the scroll thumb */
+    border: 3px solid #0e2c19;
+    /* creates padding around scroll thumb */
+}
+
+.main_image {
+    margin-right: 20;
+    padding: 0;
+    align-self: center;
+    transform: scale(1.7);
+}
+
+.list-title {
+    font-size: 8px;
+    font-weight: bold;
+}
+
+.card {
+    /* background-color: rgba(160, 171, 201, .25); */
+    border-radius: 3px;
+    box-shadow: 0 1px 0 rgba(9, 30, 66, .75);
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    /* to control text overflow */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: initial;
+}
+
+.card:hover {
+    background-color: rgba(160, 171, 201, .25);
+}
+
+.round {
+    border-radius: 25px;
+    margin-right: 20px;
+}
+
+.song_title {
+    font-family: 'Roboto Condensed', sans-serif;
+    color: white;
+}
+
+.song_title>p {
+    color: rgb(207, 207, 207);
+}
+
+
+/*
+
+Music controls css
+
+*/
+
+.music-player {
+    background-color: rgb(2, 2, 2);
+    width: 100%;
+    box-shadow: 10px 10px 10px rgb(75, 72, 72);
+    top: -20px;
+}
+
+.namesong {
+    color: whitesmoke;
+    margin-left: 5%;
+    font-size: 130%;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+
+/* Delete button css */
+
+a {
+    color: white;
+}
+
+.deleteButton {
+    text-align: right;
+}
+
+.rounded-button {
+    width: 60px;
+    height: 60px;
+    background: #000000;
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 50%;
+    border: none;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.rounded-button:hover,
+.rounded-button:focus {
+    box-shadow: 0 1em 1em -0.1em var(--hover);
+    transform: translateY(-0.35em);
+    background: #02b525;
+}
+
+
+/* End of delete button css  */
+
+audio {
+    width: 75vw;
+    background-color: #F1F3F4;
+}
+
+.inner-element {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

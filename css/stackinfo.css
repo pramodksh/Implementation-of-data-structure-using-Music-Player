@@ -1,0 +1,201 @@
+html {
+    scroll-behavior: smooth;
+}
+
+
+/*******************
+
+common styles
+
+*******************/
+
+
+.com-h1 {
+    font-size: 80px;
+}
+
+.aside-info {
+    padding: 2%;
+}
+
+
+/****
+
+end of common styles
+
+****/
+
+.stack-info {
+    display: flex;
+    background-color: green;
+    margin-bottom: 10px;
+    height: 60vh;
+    animation-name: stackfullanimation ;
+    animation-duration: 1s;
+
+}
+
+.stack-info-image {
+   min-width: 40%;
+}
+
+.stack-info-image img {
+    width: 100%;
+    display: block;
+    margin: 0px;
+    border: 1px solid green;
+}
+
+.stack-info-info {
+    padding: 2%;
+    
+}
+
+.stack-info-info h1 {
+    font-size: 80px;
+}
+
+.stack-info-info p {
+    font-size: 20px;
+}
+
+/*****************
+
+animation for stackinfo
+
+****************/
+@keyframes stackfullanimation {
+    0% {
+        transform: scale(0.25,0);
+    }
+    50% {
+        transform: scale(1,0);
+    }
+    100% {
+        transform: scale(1,1);
+    }
+}
+
+
+
+
+
+.stack-info-info {
+  
+    animation-name: stackinfoanimation;
+    animation-duration: 2s;
+    
+  }
+  
+  @keyframes stackinfoanimation {
+    0%   {opacity:0.2; }
+    25%  {opacity:0.4;}
+    50%  {opacity:0.6;}
+    75%  {opacity:0.8; }
+    100% {opacity:1;}
+  }
+
+
+/*****
+Arrow animation
+
+*****/
+.arrow-animation {
+    height: 20vh;
+    margin-left: 50%;  
+    margin-bottom: 0%;
+    
+}
+
+.arrow-animation span {
+    transform: rotate(45deg);
+    display: block;
+    height: 25px;
+    width: 25px ;
+    border-bottom: 5px solid rgb(15, 64, 197);
+    border-right: 5px solid rgb(15, 64, 197);
+    margin: -10px;
+    animation-name: animatearrows;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+span:nth-child(2) {
+    animation-delay: -.2s;
+}
+
+span:nth-child(3) {
+    animation-delay: -.4s;
+}
+
+@keyframes animatearrows {
+    0% {
+       opacity: 0;
+       transform: rotate(45deg) translate(-20px,-20px);
+    }
+    50% {
+        
+        opacity: 1;
+        
+    }
+    100% {
+        opacity: 0;
+        transform: rotate(45deg) translate(20px,20px);
+        
+    }
+}
+
+/******************
+
+
+stack operations
+
+******************/
+
+
+#stackop-heading {
+    font-size: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+
+.push {
+    display: flex;
+    margin: 15px;
+    animation-name: stackinfoanimation;
+    animation-duration: 2s;
+}
+
+/***
+
+live demo button
+
+***/
+.live-demo-button {
+    
+    display: inline-block;
+    background-color: green;
+    
+    text-align: center;
+    margin-left: 40%;
+    margin-bottom: 30px;
+    padding: 30px;
+    text-decoration: none;
+    transition: 1s;
+    
+
+}
+
+.live-demo-button:hover {
+    background-color: black;
+    color: green;
+    transform: scale(1.25);
+    transition: 1s;
+}
+
+body{
+    overflow-y: scroll;
+    background-image: linear-gradient(to top, #22f91f, #22f91f, #31f22e, #3bec39, #44e542, #1ed860, #00ca74, #00bb81, #009f8e, #00828b, #0c6478, #2f4858);
+
+}

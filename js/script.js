@@ -1,14 +1,8 @@
-
-
-
-
 // Splash screen animation 
 
 console.log("Script.js is running!!!")
 var splashScreenTime = 4000;
 
-function someFoo() {
-}
 
 
 function pageLoaded(){
